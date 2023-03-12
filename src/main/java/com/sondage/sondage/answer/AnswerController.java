@@ -27,7 +27,12 @@ public class AnswerController {
         return answerService.getAnswerById(answerId);
     }
 
+    @PostMapping("/add")
+    @ResponseStatus(HttpStatus.CREATED)
+    public Answer addAnswer(@RequestBody Answer newAnswer) {
+        return answerService.saveAnswer(newAnswer);
 
+    }
     @DeleteMapping("/delete/{answerId}")
     @ResponseStatus(HttpStatus.OK)
     public void deleteAnswer(@PathVariable Long answerId){

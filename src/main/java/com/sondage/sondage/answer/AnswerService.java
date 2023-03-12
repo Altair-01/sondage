@@ -14,6 +14,10 @@ public class AnswerService {
         return answerRepository.findAll();
     }
 
+    public Answer saveAnswer(Answer answer) {
+        return answerRepository.save(answer);
+    }
+
 
     public Answer getAnswerById(Long id){
         return answerRepository.findAnswerById(id);

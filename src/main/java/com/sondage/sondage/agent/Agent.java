@@ -36,7 +36,7 @@ public class Agent {
     @Column(name = "picture")
     private byte[] picture;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "site_id")
     private Site site;
 

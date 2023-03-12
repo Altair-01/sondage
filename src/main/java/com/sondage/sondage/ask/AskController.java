@@ -30,7 +30,7 @@ public class AskController {
     }
 
     //POST new answers for site
-    @PostMapping("{surveyId}")
+    @PostMapping("/{surveyId}")
     @ResponseStatus(HttpStatus.CREATED)
     public Ask createSurveyAsk(@RequestBody Ask ask, @PathVariable Long surveyId) {
         return askService.addAsk(ask,surveyId);

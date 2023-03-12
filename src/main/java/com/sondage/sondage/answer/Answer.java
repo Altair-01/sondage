@@ -3,10 +3,12 @@ package com.sondage.sondage.answer;
 import com.sondage.sondage.agent.Agent;
 import com.sondage.sondage.evaluation.Evaluation;
 import com.sondage.sondage.site.Site;
+import com.sondage.sondage.survey.Survey;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.OnDelete;
 
 @Entity
 @Table(name = "_answers")
@@ -20,15 +22,9 @@ public class Answer {
 
     private String content;
 
-    @Enumerated(EnumType.STRING)
-    @Column(length = 20)
-    private ResponseType type;
 
-    public enum ResponseType {
-        AGENT, SITE
-    }
 
-    @ManyToOne(optional = true)
+    @ManyToOne(optional = true, cascade = CascadeType.ALL)
     @JoinColumn(name = "agent_id", nullable = true)
     private Agent agent;
 
@@ -37,7 +33,7 @@ public class Answer {
     private Site site;
 
    @ManyToOne
-   @JoinColumn(name = "evaluation_id")
-   private Evaluation evaluation;
+   @JoinColumn(name = "which_survey_id")
+   private Survey survey;
 
 }

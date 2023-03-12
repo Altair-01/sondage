@@ -17,7 +17,7 @@ public class SiteController {
         this.siteService = siteService;
     }
 
-    @GetMapping
+    @GetMapping("/all")
     @ResponseStatus(HttpStatus.OK)
     public List<Site> getSites() {
         return siteService.getSites();
@@ -29,7 +29,7 @@ public class SiteController {
         return siteService.getSiteById(siteId);
     }
 
-    @PostMapping
+    @PostMapping("/create")
     @ResponseStatus(HttpStatus.CREATED)
     public void addSite(@RequestBody Site site){
         siteService.addSite(site);

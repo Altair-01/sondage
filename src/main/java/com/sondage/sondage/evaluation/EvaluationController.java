@@ -26,8 +26,8 @@ public class EvaluationController {
     @PostMapping
     public ResponseEntity<Evaluation> createEvaluation(
             @RequestBody Evaluation evaluation,
-            @RequestParam(name = "site_id", required = false) Long siteId,
-            @RequestParam(name = "agent_id", required = false) Long agentId
+            @PathVariable(name = "site_id", required = false) Long siteId,
+            @PathVariable(name = "agent_id", required = false) Long agentId
     ) {
         Site site = new Site();
         site.setId(siteId);

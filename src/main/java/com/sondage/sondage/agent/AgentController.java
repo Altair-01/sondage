@@ -16,7 +16,7 @@ public class AgentController {
         this.agentService = agentService;
     }
 
-    @GetMapping
+    @GetMapping("/all")
     @ResponseStatus(HttpStatus.OK)
     public List<Agent> getAgent() {
         return  agentService.getAgents();

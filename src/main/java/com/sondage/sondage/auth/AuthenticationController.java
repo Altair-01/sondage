@@ -17,15 +17,19 @@ public class AuthenticationController {
     public ResponseEntity<AuthenticationResponse> register(
             @RequestBody RegisterRequest request
     ){
-        return ResponseEntity.ok(service.register(request));
-    }
+        AuthenticationResponse response = service.register(request);
+        String token = response.getToken();
+        return ResponseEntity.ok(response);    }
 
     @PostMapping("/authenticate")
     public ResponseEntity<AuthenticationResponse> register(
             @RequestBody AuthenticationRequest request
     ){
-        return ResponseEntity.ok(service.authenticate(request));
+        AuthenticationResponse response = service.authenticate(request);
+        String token = response.getToken();
+        return ResponseEntity.ok(response);
 
     }
+
 
 }
