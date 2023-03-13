@@ -24,7 +24,7 @@ public class Answer {
 
 
 
-    @ManyToOne(optional = true, cascade = CascadeType.ALL)
+    @ManyToOne(optional = true)
     @JoinColumn(name = "agent_id", nullable = true)
     private Agent agent;
 
